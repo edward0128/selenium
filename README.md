@@ -23,5 +23,5 @@
   ```
 #### 執行測試
   ```
-  python xportal_test001.py
+  python3 xportal_test001.py
   ```
