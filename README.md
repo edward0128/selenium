@@ -35,7 +35,7 @@ example
   ```
   cd /home/selenium/test-case/
   ```
-#### 修改 config
+#### 修改 config.ini
 
 需修改 XXXXX 為本機 ip 
 
