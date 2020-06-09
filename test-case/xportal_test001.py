@@ -3,6 +3,8 @@ import pytest
 import time
 import json
 import logging
+import os
+import configparser
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -16,7 +18,7 @@ class DemoTest():
   def setup_method(self):
     # Start the logging
     
-    logging.basicConfig(filename='selenium.log',format='%(levelname)s %(asctime)s %(message)s', level=logging.INFO)
+    logging.basicConfig(filename='program.log',format='%(levelname)s %(asctime)s %(message)s', level=logging.INFO)
     logging.info('########################selenium test start ########################')
     logging.info('Logging app started')
 
@@ -28,9 +30,16 @@ class DemoTest():
     #options.add_argument("test=/Users/yu-sung/Documents/ci/profile.test")
     #driver = webdriver.Chrome('./chromedriver', chrome_options=options)
     
+    # get file path
+    proDir = os.path.split(os.path.realpath(__file__))[0]
+    configPath = os.path.join(proDir, "config.ini")
+    config = configparser.ConfigParser()
+    config.read(configPath)
+    grid_servier_url = config.get("webdriver","server")
+    browser = config.get("webdriver","browser")
 
     try:
-      self.driver = webdriver.Remote(command_executor='http://10.16.1.5:4444/wd/hub',desired_capabilities={'browserName': 'chrome', 'javascriptEnabled': False})
+      self.driver = webdriver.Remote(command_executor=grid_servier_url,desired_capabilities={'browserName': browser, 'javascriptEnabled': False})
     except:
       logging.error('Prepare webdriver error', exc_info=True)
       self.driver.quit()
@@ -45,8 +54,16 @@ class DemoTest():
   def DemoTest_1(self):
     ########################################    
     #Connet and login to the xportal System
+    proDir = os.path.split(os.path.realpath(__file__))[0]
+    configPath = os.path.join(proDir, "config.ini")
+    config = configparser.ConfigParser()
+    config.read(configPath)
+    url = config.get("xportal","url")
+    k8s_name = config.get("k8s","k8s_name")
+    k8s_ip = config.get("k8s","k8s_ip")
+    
     try:
-      self.driver.get("http://10.16.44.1:32666/")
+      self.driver.get(url)
     except:
       logging.error('Connect to the Site Error', exc_info=True)
       self.driver.quit()
@@ -88,10 +105,10 @@ class DemoTest():
     ########################################
     try:
       logging.info('Check Infrastructure Host')
-      host=self.driver.find_element(By.XPATH, "//a[contains(text(),'k8s-1')]")
+      host=self.driver.find_element(By.XPATH, "//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr/td/span/a")
       print(host.text)
-      if host.text == "k8s-1":
-        logging.info('Check Infrastructure Host OK %s == %s',host.text,"k8s-1")
+      if host.text == k8s_name:
+        logging.info('Check Infrastructure Host OK %s == %s',host.text,k8s_name)
       else:
         logging.info('Check Infrastructure Host error', exc_info=True)
       
@@ -106,10 +123,10 @@ class DemoTest():
 
       host_ip=self.driver.find_element(By.XPATH, "//td[4]/span")
       print(host_ip.text)
-      if host_ip.text == "10.16.44.2":
-        logging.info('Check Host_ip Ok %s == %s', host_ip.text,"10.16.44.2")
+      if host_ip.text == k8s_ip:
+        logging.info('Check Host_ip Ok %s == %s', host_ip.text,k8s_ip)
       else:
-        logging.error('Check Host_ip Error %s != %s', host_ip.text,"10.16.44.2")
+        logging.error('Check Host_ip Error %s != %s', host_ip.text,k8s_ip)
       #if host.text == "Host":
       #  ActionChains(self.driver).move_to_element(host).click(host).perform()
       #time.sleep(delayTime)
