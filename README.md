@@ -28,7 +28,7 @@ docker run -d -e VIDEO=false -v ~/video:/videos --name=grid -p 4444:24444 -p 590
   ```
   cd /home/selenium/test-case/
   ```
-#### 修改 config 
+#### 修改 config
 
 需修改 XXXXX 為本機 ip 
 
