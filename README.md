@@ -28,6 +28,20 @@ docker run -d -e VIDEO=false -v ~/video:/videos --name=grid -p 4444:24444 -p 590
   ```
   cd /home/selenium/test-case/
   ```
+#### 修改 config 
+  ```
+   [webdriver]
+    ; grid server url
+    server=http://10.16.1.5:4444/wd/hub
+    ; chrome or firefox
+    browser=chrome
+   [xportal]
+    url=http://10.16.44.1:32666/
+   [k8s]
+    k8s_name=k8s-1
+    k8s_ip=10.16.44.2
+  ```
+  
 #### 執行測試
   ```
   python3 xportal_test001.py
