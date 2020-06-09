@@ -7,6 +7,13 @@
 mkdir -p ~/video
 docker run -d -e VIDEO=false -v ~/video:/videos --name=grid -p 4444:24444 -p 5905:25900  -e SCREEN_WIDTH=1024 -e SCREEN_HEIGHT=768   elgalu/selenium
 ```
+使用 vnc viewer 連接到 grid server
+
+需使用本機IP
+```
+example
+192.168.1.5:5905
+```
 #### 使用教學
   ```
   將 container 內部的資料夾 /home 掛到使用者的目錄
