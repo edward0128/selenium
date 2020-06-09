@@ -3,6 +3,8 @@ import pytest
 import time
 import json
 import logging
+import os
+import configparser
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -27,27 +29,40 @@ class DemoTest():
     #options.add_argument('--headless')
     #options.add_argument("test=/Users/yu-sung/Documents/ci/profile.test")
     #driver = webdriver.Chrome('./chromedriver', chrome_options=options)
-    
-
+    proDir = os.path.split(os.path.realpath(__file__))[0]
+    configPath = os.path.join(proDir, "config.ini")
+    config = configparser.ConfigParser()
+    config.read(configPath)
+    grid_servier_url = config.get("webdriver","server")
+    browser = config.get("webdriver","browser")    
     try:
-      self.driver = webdriver.Remote(command_executor='http://10.16.1.5:4444/wd/hub',desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': False})
+      self.driver = webdriver.Remote(command_executor=grid_servier_url,desired_capabilities={'browserName': browser, 'javascriptEnabled': False})
     except:
-      logging.error('Prepare webdriver error')
+      logging.error('Prepare webdriver error', exc_info=True)
       self.driver.quit()
     
     self.vars={}
+    self.vars["browser"] = config.get("webdriver","browser")
     logging.info('Prepare webdriver Ready')
   def teardown_method(self):
     self.driver.quit()
     logging.info('########################selenium test stop ########################') 
     
-  def DemoTest_1(self):
-    ########################################    
+  def DemoTest_1(self):  
     #Connet and login to the xportal System
+    proDir = os.path.split(os.path.realpath(__file__))[0]
+    configPath = os.path.join(proDir, "config.ini")
+    config = configparser.ConfigParser()
+    config.read(configPath)
+    url = config.get("xportal","url")
+    k8s_name = config.get("k8s","k8s_name")
+    k8s_ip = config.get("k8s","k8s_ip")
+
+    print(self.vars["browser"])
     try:
-      self.driver.get("http://10.16.44.1:32666/")
+      self.driver.get(url)
     except:
-      logging.error('Connect to the Site Error')
+      logging.error('Connect to the Site Error', exc_info=True)
       self.driver.quit()
 
     try:

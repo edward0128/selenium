@@ -31,41 +31,36 @@ class DemoTest():
     #driver = webdriver.Chrome('./chromedriver', chrome_options=options)
     
     # get file path
+    self.vars={}
+    
     proDir = os.path.split(os.path.realpath(__file__))[0]
     configPath = os.path.join(proDir, "config.ini")
     config = configparser.ConfigParser()
     config.read(configPath)
-    grid_servier_url = config.get("webdriver","server")
-    browser = config.get("webdriver","browser")
-
+    self.vars["grid_servier_url"] = config.get("webdriver","server")
+    self.vars["browser"] = config.get("webdriver","browser")
+    self.vars["url"] = config.get("xportal","url")
+    self.vars["k8s_name"] = config.get("k8s","k8s_name")
+    self.vars["k8s_ip"] = config.get("k8s","k8s_ip")
     try:
-      self.driver = webdriver.Remote(command_executor=grid_servier_url,desired_capabilities={'browserName': browser, 'javascriptEnabled': False})
+      self.driver = webdriver.Remote(command_executor=self.vars["grid_servier_url"],desired_capabilities={'browserName': self.vars["browser"], 'javascriptEnabled': False})
     except:
       logging.error('Prepare webdriver error', exc_info=True)
       self.driver.quit()
     
-    self.vars={}
     logging.info('Prepare webdriver Ready')
   def teardown_method(self):
     self.driver.quit()
-    logging.info("PASS!!!!")
     logging.info('########################selenium test stop #########################') 
     
   def DemoTest_1(self):
     ########################################    
     #Connet and login to the xportal System
-    proDir = os.path.split(os.path.realpath(__file__))[0]
-    configPath = os.path.join(proDir, "config.ini")
-    config = configparser.ConfigParser()
-    config.read(configPath)
-    url = config.get("xportal","url")
-    k8s_name = config.get("k8s","k8s_name")
-    k8s_ip = config.get("k8s","k8s_ip")
-    
     try:
-      self.driver.get(url)
+      self.driver.get(self.vars["url"])
     except:
       logging.error('Connect to the Site Error', exc_info=True)
+      logging.error("NOT PASS!!!!")
       self.driver.quit()
 
     try:
@@ -79,6 +74,7 @@ class DemoTest():
       self.driver.implicitly_wait(10)
     except:
       logging.error('Connect to the Site Error', exc_info=True)
+      logging.error("NOT PASS!!!!")
       self.driver.quit()
     
     ########################################
@@ -91,6 +87,7 @@ class DemoTest():
         time.sleep(delayTime)
     except:
       logging.error('Click Infrastructure Error', exc_info=True)
+      logging.error("NOT PASS!!!!")
       self.driver.quit()
     ########################################
     try:
@@ -101,37 +98,38 @@ class DemoTest():
       time.sleep(delayTime)
     except:
       logging.error('Click Host', exc_info=True)
+      logging.error("NOT PASS!!!!")
       self.driver.quit()
     ########################################
     try:
       logging.info('Check Infrastructure Host')
       host=self.driver.find_element(By.XPATH, "//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr/td/span/a")
-      print(host.text)
-      if host.text == k8s_name:
-        logging.info('Check Infrastructure Host OK %s == %s',host.text,k8s_name)
+      if host.text == self.vars["k8s_name"]:
+        logging.info('Check Infrastructure Host OK %s == %s',host.text,self.vars["k8s_name"])
       else:
-        logging.info('Check Infrastructure Host error', exc_info=True)
+        logging.error('Check Infrastructure Host error %s != %s',host.text,self.vars["k8s_name"])
+        logging.error("NOT PASS!!!!")
+        self.driver.quit()
       
-
       host_status=self.driver.find_element(By.XPATH, "//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr/td[2]/span")
-      print(host_status.text)
       if host_status.text == "Up":
         logging.info('Check Host Staus OK %s == Up', host_status.text)
       else:
         logging.error('Check Host Staus Error %s != Up', host_status.text)
-
+        logging.error("NOT PASS!!!!")
+        self.driver.quit()  
 
       host_ip=self.driver.find_element(By.XPATH, "//td[4]/span")
-      print(host_ip.text)
-      if host_ip.text == k8s_ip:
-        logging.info('Check Host_ip Ok %s == %s', host_ip.text,k8s_ip)
+      if host_ip.text == self.vars["k8s_ip"]:
+        logging.info('Check Host_ip Ok %s == %s', host_ip.text,self.vars["k8s_ip"])
       else:
-        logging.error('Check Host_ip Error %s != %s', host_ip.text,k8s_ip)
-      #if host.text == "Host":
-      #  ActionChains(self.driver).move_to_element(host).click(host).perform()
-      #time.sleep(delayTime)
+        logging.error('Check Host_ip Error %s != %s', host_ip.text,self.vars["k8s_ip"])
+        logging.error("NOT PASS!!!!")
+        self.driver.quit()  
+    
+      logging.info("PASS!!!!")
     except:
-      logging.error('Click Host', exc_info=True)
+      logging.error("NOT PASS!!!!")
       self.driver.quit()    
 
     
