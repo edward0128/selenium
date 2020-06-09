@@ -16,7 +16,7 @@ class DemoTest():
   def setup_method(self):
     # Start the logging
     
-    logging.basicConfig(filename='program.log',format='%(levelname)s %(asctime)s %(message)s', level=logging.INFO)
+    logging.basicConfig(filename='selenium.log',format='%(levelname)s %(asctime)s %(message)s', level=logging.INFO)
     logging.info('########################selenium test start ########################')
     logging.info('Logging app started')
 
@@ -30,7 +30,7 @@ class DemoTest():
     
 
     try:
-      self.driver = webdriver.Remote(command_executor='http://10.16.1.5:4444/wd/hub',desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': False})
+      self.driver = webdriver.Remote(command_executor='http://10.16.1.5:4444/wd/hub',desired_capabilities={'browserName': 'chrome', 'javascriptEnabled': False})
     except:
       logging.error('Prepare webdriver error', exc_info=True)
       self.driver.quit()
