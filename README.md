@@ -31,9 +31,7 @@ docker run -d -e VIDEO=false -v ~/video:/videos --name=grid -p 4444:24444 -p 590
 #### 修改 config 
   ```
    [webdriver]
-    ; grid server url
     server=http://10.16.1.5:4444/wd/hub
-    ; chrome or firefox
     browser=chrome
    [xportal]
     url=http://10.16.44.1:32666/
