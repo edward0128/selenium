@@ -1,0 +1,566 @@
+INFO 2020-06-09 15:08:05,245 ########################selenium test start ########################
+INFO 2020-06-09 15:08:05,246 Logging app started
+INFO 2020-06-09 15:08:05,252 Could not connect to port 4444 on host x.x.x.x
+INFO 2020-06-09 15:08:05,253 Could not get IP address for host: x.x.x.x
+WARNING 2020-06-09 15:08:05,263 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1108f6190>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /wd/hub/session
+WARNING 2020-06-09 15:08:05,265 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x110d6fd90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /wd/hub/session
+WARNING 2020-06-09 15:08:05,266 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x110d840d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /wd/hub/session
+ERROR 2020-06-09 15:08:05,267 Prepare webdriver error
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/usr/local/lib/python3.7/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x110d84310>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "xportal_test002.py", line 40, in setup_method
+    self.driver = webdriver.Remote(command_executor=grid_servier_url,desired_capabilities={'browserName': browser, 'javascriptEnabled': False})
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 152, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 249, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 316, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 375, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 398, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.7/site-packages/urllib3/request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "/usr/local/lib/python3.7/site-packages/urllib3/request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/usr/local/lib/python3.7/site-packages/urllib3/poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 765, in urlopen
+    **response_kw
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 765, in urlopen
+    **response_kw
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 765, in urlopen
+    **response_kw
+  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/usr/local/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='x.x.x.x', port=4444): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x110d84310>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+INFO 2020-06-09 15:08:59,637 ########################selenium test start ########################
+INFO 2020-06-09 15:08:59,638 Logging app started
+INFO 2020-06-09 15:09:00,023 Prepare webdriver Ready
+INFO 2020-06-09 15:09:02,167 Start to login the WebSite
+INFO 2020-06-09 15:09:02,666 Click Infrastructure
+INFO 2020-06-09 15:09:05,344 Click Host
+INFO 2020-06-09 15:09:07,130 Click AvailabilityZone
+INFO 2020-06-09 15:09:08,896 Click Users
+INFO 2020-06-09 15:09:10,516 Click usermanagement
+INFO 2020-06-09 15:09:12,267 Click useractivation
+INFO 2020-06-09 15:09:14,009 Click Projects
+INFO 2020-06-09 15:09:15,766 Click solution
+INFO 2020-06-09 15:09:17,520 Click flavor
+INFO 2020-06-09 15:09:19,267 Click overview
+INFO 2020-06-09 15:09:31,036 ########################selenium test stop ########################
+INFO 2020-06-09 15:09:34,446 ########################selenium test start ########################
+INFO 2020-06-09 15:09:34,447 Logging app started
+INFO 2020-06-09 15:09:34,812 Prepare webdriver Ready
+INFO 2020-06-09 15:09:36,898 Start to login the WebSite
+INFO 2020-06-09 15:09:37,429 Click Infrastructure
+INFO 2020-06-09 15:09:39,903 Click Host
+INFO 2020-06-09 15:09:41,694 Click AvailabilityZone
+INFO 2020-06-09 15:09:43,472 Click Users
+INFO 2020-06-09 15:09:45,113 Click usermanagement
+INFO 2020-06-09 15:09:46,882 Click useractivation
+INFO 2020-06-09 15:09:48,621 Click Projects
+INFO 2020-06-09 15:09:50,369 Click solution
+INFO 2020-06-09 15:09:52,133 Click flavor
+INFO 2020-06-09 15:09:53,890 Click overview
+INFO 2020-06-09 15:10:05,661 ########################selenium test stop ########################
+INFO 2020-06-09 15:15:51,219 ########################selenium test start ########################
+INFO 2020-06-09 15:15:51,220 Logging app started
+INFO 2020-06-09 15:15:51,630 Prepare webdriver Ready
+INFO 2020-06-09 15:15:53,722 Start to login the WebSite
+INFO 2020-06-09 15:15:54,280 Click Infrastructure
+INFO 2020-06-09 15:15:56,574 Click Host
+INFO 2020-06-09 15:15:58,350 Click AvailabilityZone
+INFO 2020-06-09 15:16:00,130 Click Users
+INFO 2020-06-09 15:16:01,762 Click usermanagement
+INFO 2020-06-09 15:16:03,546 Click useractivation
+INFO 2020-06-09 15:16:05,282 Click Projects
+INFO 2020-06-09 15:16:07,037 Click solution
+INFO 2020-06-09 15:16:08,807 Click flavor
+INFO 2020-06-09 15:16:10,562 Click overview
+INFO 2020-06-09 15:16:22,325 ########################selenium test stop ########################
+INFO 2020-06-09 15:24:18,298 ########################selenium test start ########################
+INFO 2020-06-09 15:24:18,299 Logging app started
+INFO 2020-06-09 15:24:18,691 Prepare webdriver Ready
+INFO 2020-06-09 15:24:20,651 Start to login the WebSite
+INFO 2020-06-09 15:24:21,310 Click Infrastructure
+INFO 2020-06-09 15:24:23,633 Click Host
+INFO 2020-06-09 15:24:25,434 Check Infrastructure Host
+INFO 2020-06-09 15:24:26,921 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:24:26,998 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:24:27,076 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:24:32,134 PASS!!!!
+INFO 2020-06-09 15:24:32,134 ########################selenium test stop #########################
+INFO 2020-06-09 15:31:08,148 ########################selenium test start ########################
+INFO 2020-06-09 15:31:08,149 Logging app started
+INFO 2020-06-09 15:31:08,512 Prepare webdriver Ready
+INFO 2020-06-09 15:31:10,969 Start to login the WebSite
+INFO 2020-06-09 15:31:11,467 Click Infrastructure
+INFO 2020-06-09 15:31:13,822 Click Host
+INFO 2020-06-09 15:31:15,638 Check Infrastructure Host
+INFO 2020-06-09 15:31:15,698 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:31:15,747 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:31:15,798 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:31:15,798 PASS!!!!
+INFO 2020-06-09 15:31:20,855 ########################selenium test stop #########################
+INFO 2020-06-09 15:32:37,512 ########################selenium test start ########################
+INFO 2020-06-09 15:32:37,512 Logging app started
+INFO 2020-06-09 15:32:37,988 Prepare webdriver Ready
+INFO 2020-06-09 15:32:40,108 Start to login the WebSite
+INFO 2020-06-09 15:32:40,763 Click Infrastructure
+INFO 2020-06-09 15:32:43,081 Click Host
+INFO 2020-06-09 15:32:44,872 Check Infrastructure Host
+INFO 2020-06-09 15:32:44,933 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:32:44,996 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:32:45,054 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:32:45,054 PASS!!!!
+INFO 2020-06-09 15:32:50,111 ########################selenium test stop #########################
+INFO 2020-06-09 15:33:34,163 ########################selenium test start ########################
+INFO 2020-06-09 15:33:34,163 Logging app started
+INFO 2020-06-09 15:33:34,535 Prepare webdriver Ready
+INFO 2020-06-09 15:33:36,520 Start to login the WebSite
+INFO 2020-06-09 15:33:37,046 Click Infrastructure
+INFO 2020-06-09 15:33:39,413 Click Host
+INFO 2020-06-09 15:33:41,210 Check Infrastructure Host
+INFO 2020-06-09 15:33:41,277 Check Infrastructure Host error
+NoneType: None
+ERROR 2020-06-09 15:33:41,277 NOT PASS!!!!
+ERROR 2020-06-09 15:33:41,347 Click Host
+Traceback (most recent call last):
+  File "xportal_test001.py", line 114, in DemoTest_1
+    host_status=self.driver.find_element(By.XPATH, "//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr/td[2]/span")
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 1014, in find_element
+    'value': value})['value']
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 318, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: Session [23a83019cc28782d95cb9be8bfb79513] was terminated due to CLIENT_STOPPED_SESSION
+Stacktrace:
+    at org.openqa.grid.internal.ActiveTestSessions.getExistingSession (ActiveTestSessions.java:115)
+    at org.openqa.grid.internal.DefaultGridRegistry.getExistingSession (DefaultGridRegistry.java:387)
+    at org.openqa.grid.web.servlet.handler.RequestHandler.getSession (RequestHandler.java:241)
+    at org.openqa.grid.web.servlet.handler.RequestHandler.process (RequestHandler.java:123)
+    at org.openqa.grid.web.servlet.DriverServlet.process (DriverServlet.java:85)
+    at org.openqa.grid.web.servlet.DriverServlet.doPost (DriverServlet.java:69)
+    at javax.servlet.http.HttpServlet.service (HttpServlet.java:707)
+    at javax.servlet.http.HttpServlet.service (HttpServlet.java:790)
+    at org.seleniumhq.jetty9.servlet.ServletHolder.handle (ServletHolder.java:865)
+    at org.seleniumhq.jetty9.servlet.ServletHandler.doHandle (ServletHandler.java:535)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.handle (ScopedHandler.java:146)
+    at org.seleniumhq.jetty9.security.SecurityHandler.handle (SecurityHandler.java:548)
+    at org.seleniumhq.jetty9.server.handler.HandlerWrapper.handle (HandlerWrapper.java:132)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextHandle (ScopedHandler.java:257)
+    at org.seleniumhq.jetty9.server.session.SessionHandler.doHandle (SessionHandler.java:1595)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextHandle (ScopedHandler.java:255)
+    at org.seleniumhq.jetty9.server.handler.ContextHandler.doHandle (ContextHandler.java:1340)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope (ScopedHandler.java:203)
+    at org.seleniumhq.jetty9.servlet.ServletHandler.doScope (ServletHandler.java:473)
+    at org.seleniumhq.jetty9.server.session.SessionHandler.doScope (SessionHandler.java:1564)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope (ScopedHandler.java:201)
+    at org.seleniumhq.jetty9.server.handler.ContextHandler.doScope (ContextHandler.java:1242)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.handle (ScopedHandler.java:144)
+    at org.seleniumhq.jetty9.server.handler.HandlerWrapper.handle (HandlerWrapper.java:132)
+    at org.seleniumhq.jetty9.server.Server.handle (Server.java:503)
+    at org.seleniumhq.jetty9.server.HttpChannel.handle (HttpChannel.java:364)
+    at org.seleniumhq.jetty9.server.HttpConnection.onFillable (HttpConnection.java:260)
+    at org.seleniumhq.jetty9.io.AbstractConnection$ReadCallback.succeeded (AbstractConnection.java:305)
+    at org.seleniumhq.jetty9.io.FillInterest.fillable (FillInterest.java:103)
+    at org.seleniumhq.jetty9.io.ChannelEndPoint$2.run (ChannelEndPoint.java:118)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.runTask (EatWhatYouKill.java:333)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.doProduce (EatWhatYouKill.java:310)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.tryProduce (EatWhatYouKill.java:168)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.run (EatWhatYouKill.java:126)
+    at org.seleniumhq.jetty9.util.thread.ReservedThreadExecutor$ReservedThread.run (ReservedThreadExecutor.java:366)
+    at org.seleniumhq.jetty9.util.thread.QueuedThreadPool.runJob (QueuedThreadPool.java:765)
+    at org.seleniumhq.jetty9.util.thread.QueuedThreadPool$2.run (QueuedThreadPool.java:683)
+    at java.lang.Thread.run (Thread.java:748)
+ERROR 2020-06-09 15:33:41,352 NOT PASS!!!!
+INFO 2020-06-09 15:36:17,094 ########################selenium test start ########################
+INFO 2020-06-09 15:36:17,095 Logging app started
+INFO 2020-06-09 15:36:17,468 Prepare webdriver Ready
+INFO 2020-06-09 15:36:19,590 Start to login the WebSite
+INFO 2020-06-09 15:36:20,146 Click Infrastructure
+INFO 2020-06-09 15:36:22,530 Click Host
+INFO 2020-06-09 15:36:24,345 Check Infrastructure Host
+ERROR 2020-06-09 15:36:24,967 Check Infrastructure Host error k8s-1 != k8s-5
+ERROR 2020-06-09 15:36:24,968 NOT PASS!!!!
+ERROR 2020-06-09 15:36:25,031 Click Host
+Traceback (most recent call last):
+  File "xportal_test001.py", line 114, in DemoTest_1
+    host_status=self.driver.find_element(By.XPATH, "//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr/td[2]/span")
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 1014, in find_element
+    'value': value})['value']
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 318, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: Session [02ee580fae33eac815df147147c12244] was terminated due to CLIENT_STOPPED_SESSION
+Stacktrace:
+    at org.openqa.grid.internal.ActiveTestSessions.getExistingSession (ActiveTestSessions.java:115)
+    at org.openqa.grid.internal.DefaultGridRegistry.getExistingSession (DefaultGridRegistry.java:387)
+    at org.openqa.grid.web.servlet.handler.RequestHandler.getSession (RequestHandler.java:241)
+    at org.openqa.grid.web.servlet.handler.RequestHandler.process (RequestHandler.java:123)
+    at org.openqa.grid.web.servlet.DriverServlet.process (DriverServlet.java:85)
+    at org.openqa.grid.web.servlet.DriverServlet.doPost (DriverServlet.java:69)
+    at javax.servlet.http.HttpServlet.service (HttpServlet.java:707)
+    at javax.servlet.http.HttpServlet.service (HttpServlet.java:790)
+    at org.seleniumhq.jetty9.servlet.ServletHolder.handle (ServletHolder.java:865)
+    at org.seleniumhq.jetty9.servlet.ServletHandler.doHandle (ServletHandler.java:535)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.handle (ScopedHandler.java:146)
+    at org.seleniumhq.jetty9.security.SecurityHandler.handle (SecurityHandler.java:548)
+    at org.seleniumhq.jetty9.server.handler.HandlerWrapper.handle (HandlerWrapper.java:132)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextHandle (ScopedHandler.java:257)
+    at org.seleniumhq.jetty9.server.session.SessionHandler.doHandle (SessionHandler.java:1595)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextHandle (ScopedHandler.java:255)
+    at org.seleniumhq.jetty9.server.handler.ContextHandler.doHandle (ContextHandler.java:1340)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope (ScopedHandler.java:203)
+    at org.seleniumhq.jetty9.servlet.ServletHandler.doScope (ServletHandler.java:473)
+    at org.seleniumhq.jetty9.server.session.SessionHandler.doScope (SessionHandler.java:1564)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope (ScopedHandler.java:201)
+    at org.seleniumhq.jetty9.server.handler.ContextHandler.doScope (ContextHandler.java:1242)
+    at org.seleniumhq.jetty9.server.handler.ScopedHandler.handle (ScopedHandler.java:144)
+    at org.seleniumhq.jetty9.server.handler.HandlerWrapper.handle (HandlerWrapper.java:132)
+    at org.seleniumhq.jetty9.server.Server.handle (Server.java:503)
+    at org.seleniumhq.jetty9.server.HttpChannel.handle (HttpChannel.java:364)
+    at org.seleniumhq.jetty9.server.HttpConnection.onFillable (HttpConnection.java:260)
+    at org.seleniumhq.jetty9.io.AbstractConnection$ReadCallback.succeeded (AbstractConnection.java:305)
+    at org.seleniumhq.jetty9.io.FillInterest.fillable (FillInterest.java:103)
+    at org.seleniumhq.jetty9.io.ChannelEndPoint$2.run (ChannelEndPoint.java:118)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.runTask (EatWhatYouKill.java:333)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.doProduce (EatWhatYouKill.java:310)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.tryProduce (EatWhatYouKill.java:168)
+    at org.seleniumhq.jetty9.util.thread.strategy.EatWhatYouKill.run (EatWhatYouKill.java:126)
+    at org.seleniumhq.jetty9.util.thread.ReservedThreadExecutor$ReservedThread.run (ReservedThreadExecutor.java:366)
+    at org.seleniumhq.jetty9.util.thread.QueuedThreadPool.runJob (QueuedThreadPool.java:765)
+    at org.seleniumhq.jetty9.util.thread.QueuedThreadPool$2.run (QueuedThreadPool.java:683)
+    at java.lang.Thread.run (Thread.java:748)
+ERROR 2020-06-09 15:36:25,035 NOT PASS!!!!
+INFO 2020-06-09 15:37:21,348 ########################selenium test start ########################
+INFO 2020-06-09 15:37:21,348 Logging app started
+INFO 2020-06-09 15:37:21,703 Prepare webdriver Ready
+INFO 2020-06-09 15:37:24,019 Start to login the WebSite
+INFO 2020-06-09 15:37:24,658 Click Infrastructure
+INFO 2020-06-09 15:37:26,887 Click Host
+INFO 2020-06-09 15:37:28,692 Check Infrastructure Host
+ERROR 2020-06-09 15:37:28,757 Check Infrastructure Host error k8s-1 != k8s-5
+ERROR 2020-06-09 15:37:28,758 NOT PASS!!!!
+ERROR 2020-06-09 15:37:28,824 NOT PASS!!!!
+INFO 2020-06-09 15:37:55,429 ########################selenium test start ########################
+INFO 2020-06-09 15:37:55,429 Logging app started
+INFO 2020-06-09 15:37:55,783 Prepare webdriver Ready
+INFO 2020-06-09 15:37:57,974 Start to login the WebSite
+INFO 2020-06-09 15:37:58,486 Click Infrastructure
+INFO 2020-06-09 15:38:01,041 Click Host
+INFO 2020-06-09 15:38:02,849 Check Infrastructure Host
+ERROR 2020-06-09 15:38:02,914 Check Infrastructure Host error k8s-1 != k8s-5
+ERROR 2020-06-09 15:38:02,915 NOT PASS!!!!
+ERROR 2020-06-09 15:38:02,981 NOT PASS!!!!
+INFO 2020-06-09 15:38:20,348 ########################selenium test start ########################
+INFO 2020-06-09 15:38:20,348 Logging app started
+INFO 2020-06-09 15:38:20,708 Prepare webdriver Ready
+INFO 2020-06-09 15:38:22,896 Start to login the WebSite
+INFO 2020-06-09 15:38:23,405 Click Infrastructure
+INFO 2020-06-09 15:38:25,950 Click Host
+INFO 2020-06-09 15:38:27,742 Check Infrastructure Host
+INFO 2020-06-09 15:38:27,803 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:38:27,858 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:38:27,911 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:38:27,912 PASS!!!!
+INFO 2020-06-09 15:38:32,970 ########################selenium test stop #########################
+INFO 2020-06-09 15:41:38,311 ########################selenium test start ########################
+INFO 2020-06-09 15:41:38,311 Logging app started
+INFO 2020-06-09 15:41:38,687 Prepare webdriver Ready
+INFO 2020-06-09 15:41:40,543 Start to login the WebSite
+INFO 2020-06-09 15:41:41,064 Click Infrastructure
+INFO 2020-06-09 15:41:43,630 Click Host
+INFO 2020-06-09 15:41:45,443 Check Infrastructure Host
+INFO 2020-06-09 15:41:45,506 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:41:45,558 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:41:45,608 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:41:45,608 PASS!!!!
+INFO 2020-06-09 15:41:50,668 ########################selenium test stop #########################
+INFO 2020-06-09 15:44:50,518 ########################selenium test start ########################
+INFO 2020-06-09 15:44:50,518 Logging app started
+INFO 2020-06-09 15:44:50,883 Prepare webdriver Ready
+INFO 2020-06-09 15:44:52,626 Start to login the WebSite
+INFO 2020-06-09 15:44:53,177 Click Infrastructure
+INFO 2020-06-09 15:44:55,504 Click Host
+INFO 2020-06-09 15:44:57,302 Check Infrastructure Host
+INFO 2020-06-09 15:44:57,724 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 15:44:57,775 Check Host Staus OK Up == Up
+INFO 2020-06-09 15:44:57,830 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 15:44:57,830 PASS!!!!
+INFO 2020-06-09 15:45:02,888 ########################selenium test stop #########################
+INFO 2020-06-09 17:26:25,643 ########################selenium test start ########################
+INFO 2020-06-09 17:26:25,643 Logging app started
+INFO 2020-06-09 17:26:26,041 Prepare webdriver Ready
+INFO 2020-06-09 17:26:28,219 Start to login the WebSite
+INFO 2020-06-09 17:26:28,693 Click Infrastructure
+INFO 2020-06-09 17:26:31,153 Click Host
+INFO 2020-06-09 17:26:32,947 Check Infrastructure Host
+INFO 2020-06-09 17:26:33,022 Check Infrastructure Host OK k8s-1 == k8s-1
+INFO 2020-06-09 17:26:33,079 Check Host Staus OK Up == Up
+INFO 2020-06-09 17:26:33,134 Check Host_ip Ok 10.16.44.2 == 10.16.44.2
+INFO 2020-06-09 17:26:33,134 PASS!!!!
+INFO 2020-06-09 17:26:38,198 ########################selenium test stop #########################
+INFO 2020-06-09 17:26:44,788 ########################selenium test start ########################
+INFO 2020-06-09 17:26:44,789 Logging app started
+INFO 2020-06-09 17:26:45,220 Prepare webdriver Ready
+INFO 2020-06-09 17:26:47,618 Start to login the WebSite
+INFO 2020-06-09 17:26:48,242 Click Infrastructure
+INFO 2020-06-09 17:26:50,485 Click Host
+INFO 2020-06-09 17:26:52,276 Click AvailabilityZone
+INFO 2020-06-09 17:26:54,088 Click Users
+INFO 2020-06-09 17:26:55,730 Click usermanagement
+INFO 2020-06-09 17:26:57,504 Click useractivation
+INFO 2020-06-09 17:26:59,246 Click Projects
+INFO 2020-06-09 17:27:00,994 Click solution
+INFO 2020-06-09 17:27:02,766 Click flavor
+INFO 2020-06-09 17:27:04,509 Click overview
+INFO 2020-06-09 17:27:16,271 ########################selenium test stop ########################
+INFO 2020-06-09 17:31:45,764 ########################selenium test start ########################
+INFO 2020-06-09 17:31:45,765 Logging app started
+INFO 2020-06-09 17:31:46,187 Prepare webdriver Ready
+INFO 2020-06-09 17:31:48,154 Start to login the WebSite
+INFO 2020-06-09 17:31:48,677 Click Users
+INFO 2020-06-09 17:31:50,999 Click usermanagement
+INFO 2020-06-09 17:32:02,884 ########################selenium test stop ########################
+INFO 2020-06-09 17:36:52,748 ########################selenium test start ########################
+INFO 2020-06-09 17:36:52,749 Logging app started
+INFO 2020-06-09 17:36:53,124 Prepare webdriver Ready
+INFO 2020-06-09 17:36:55,321 Start to login the WebSite
+INFO 2020-06-09 17:36:55,904 Click Users
+INFO 2020-06-09 17:36:58,238 Click usermanagement
+INFO 2020-06-09 17:37:10,174 ########################selenium test stop ########################
+INFO 2020-06-09 17:37:21,394 ########################selenium test start ########################
+INFO 2020-06-09 17:37:21,394 Logging app started
+INFO 2020-06-09 17:37:21,883 Prepare webdriver Ready
+INFO 2020-06-09 17:37:24,285 Start to login the WebSite
+INFO 2020-06-09 17:37:24,985 Click Users
+INFO 2020-06-09 17:37:27,330 Click usermanagement
+INFO 2020-06-09 17:37:39,292 ########################selenium test stop ########################
+INFO 2020-06-09 17:37:54,939 ########################selenium test start ########################
+INFO 2020-06-09 17:37:54,939 Logging app started
+INFO 2020-06-09 17:37:55,369 Prepare webdriver Ready
+INFO 2020-06-09 17:37:57,655 Start to login the WebSite
+INFO 2020-06-09 17:37:58,219 Click Users
+INFO 2020-06-09 17:38:00,652 Click usermanagement
+INFO 2020-06-09 17:38:12,587 ########################selenium test stop ########################
+INFO 2020-06-09 17:39:28,108 ########################selenium test start ########################
+INFO 2020-06-09 17:39:28,108 Logging app started
+INFO 2020-06-09 17:39:28,586 Prepare webdriver Ready
+INFO 2020-06-09 17:39:30,532 Start to login the WebSite
+INFO 2020-06-09 17:39:31,066 Click Users
+INFO 2020-06-09 17:39:33,987 Click usermanagement
+INFO 2020-06-09 17:39:45,950 ########################selenium test stop ########################
+INFO 2020-06-09 17:40:05,948 ########################selenium test start ########################
+INFO 2020-06-09 17:40:05,949 Logging app started
+INFO 2020-06-09 17:40:06,341 Prepare webdriver Ready
+INFO 2020-06-09 17:40:08,526 Start to login the WebSite
+INFO 2020-06-09 17:40:09,127 Click Users
+INFO 2020-06-09 17:40:11,587 Click usermanagement
+INFO 2020-06-09 17:40:23,644 ########################selenium test stop ########################
+INFO 2020-06-09 17:42:51,961 ########################selenium test start ########################
+INFO 2020-06-09 17:42:51,961 Logging app started
+INFO 2020-06-09 17:42:52,317 Prepare webdriver Ready
+INFO 2020-06-09 17:42:54,385 Start to login the WebSite
+INFO 2020-06-09 17:42:55,042 Click Users
+INFO 2020-06-09 17:42:57,397 Click usermanagement
+INFO 2020-06-09 17:42:59,475 ########################selenium test stop ########################
+INFO 2020-06-10 14:46:49,126 ########################selenium test start ########################
+INFO 2020-06-10 14:46:49,127 Logging app started
+INFO 2020-06-10 14:46:49,798 Prepare webdriver Ready
+INFO 2020-06-10 14:46:51,996 Start to login the WebSite
+INFO 2020-06-10 14:46:52,512 Click Users
+INFO 2020-06-10 14:46:55,226 Click usermanagement
+INFO 2020-06-10 14:46:57,269 ########################selenium test stop ########################
+INFO 2020-06-10 14:49:46,614 ########################selenium test start ########################
+INFO 2020-06-10 14:49:46,616 Logging app started
+INFO 2020-06-10 14:49:47,019 Prepare webdriver Ready
+INFO 2020-06-10 14:49:48,975 Start to login the WebSite
+INFO 2020-06-10 14:49:49,467 Click Users
+INFO 2020-06-10 14:49:51,840 Click usermanagement
+INFO 2020-06-10 14:49:53,937 ########################selenium test stop ########################
+INFO 2020-06-10 14:50:29,071 ########################selenium test start ########################
+INFO 2020-06-10 14:50:29,072 Logging app started
+INFO 2020-06-10 14:50:29,425 Prepare webdriver Ready
+INFO 2020-06-10 14:50:31,631 Start to login the WebSite
+INFO 2020-06-10 14:50:32,147 Click Users
+INFO 2020-06-10 14:50:34,515 Click usermanagement
+INFO 2020-06-10 14:50:36,566 ########################selenium test stop ########################
+INFO 2020-06-10 14:50:54,153 ########################selenium test start ########################
+INFO 2020-06-10 14:50:54,153 Logging app started
+INFO 2020-06-10 14:50:54,532 Prepare webdriver Ready
+INFO 2020-06-10 14:50:57,051 Start to login the WebSite
+INFO 2020-06-10 14:50:57,527 Click Users
+INFO 2020-06-10 14:50:59,885 Click usermanagement
+INFO 2020-06-10 14:51:01,926 ########################selenium test stop ########################
+INFO 2020-06-10 14:51:57,489 ########################selenium test start ########################
+INFO 2020-06-10 14:51:57,490 Logging app started
+INFO 2020-06-10 14:51:57,840 Prepare webdriver Ready
+INFO 2020-06-10 14:51:59,978 Start to login the WebSite
+INFO 2020-06-10 14:52:00,459 Click Users
+INFO 2020-06-10 14:52:02,798 Click usermanagement
+INFO 2020-06-10 14:52:04,859 ########################selenium test stop ########################
+INFO 2020-06-10 14:52:59,543 ########################selenium test start ########################
+INFO 2020-06-10 14:52:59,543 Logging app started
+INFO 2020-06-10 14:52:59,918 Prepare webdriver Ready
+INFO 2020-06-10 14:53:01,999 Start to login the WebSite
+INFO 2020-06-10 14:53:02,526 Click Users
+INFO 2020-06-10 14:53:04,884 Click usermanagement
+INFO 2020-06-10 14:53:06,983 ########################selenium test stop ########################
+INFO 2020-06-10 14:54:30,581 ########################selenium test start ########################
+INFO 2020-06-10 14:54:30,581 Logging app started
+INFO 2020-06-10 14:54:30,983 Prepare webdriver Ready
+INFO 2020-06-10 14:54:33,308 Start to login the WebSite
+INFO 2020-06-10 14:54:33,858 Click Users
+INFO 2020-06-10 14:54:36,225 Click usermanagement
+INFO 2020-06-10 14:54:38,307 ########################selenium test stop ########################
+INFO 2020-06-10 14:55:03,493 ########################selenium test start ########################
+INFO 2020-06-10 14:55:03,493 Logging app started
+INFO 2020-06-10 14:55:04,020 Prepare webdriver Ready
+INFO 2020-06-10 14:55:06,116 Start to login the WebSite
+INFO 2020-06-10 14:55:06,842 Click Users
+INFO 2020-06-10 14:55:09,400 Click usermanagement
+INFO 2020-06-10 14:55:11,377 ########################selenium test stop ########################
+INFO 2020-06-10 14:55:50,029 ########################selenium test start ########################
+INFO 2020-06-10 14:55:50,029 Logging app started
+INFO 2020-06-10 14:55:50,397 Prepare webdriver Ready
+INFO 2020-06-10 14:55:53,024 Start to login the WebSite
+INFO 2020-06-10 14:55:53,769 Click Users
+INFO 2020-06-10 14:55:56,226 Click usermanagement
+INFO 2020-06-10 14:55:58,206 ########################selenium test stop ########################
+INFO 2020-06-10 14:56:56,817 ########################selenium test start ########################
+INFO 2020-06-10 14:56:56,818 Logging app started
+INFO 2020-06-10 14:56:57,174 Prepare webdriver Ready
+INFO 2020-06-10 14:56:59,772 Start to login the WebSite
+INFO 2020-06-10 14:57:00,422 Click Users
+INFO 2020-06-10 14:57:02,681 Click usermanagement
+INFO 2020-06-10 14:57:04,656 ########################selenium test stop ########################
+INFO 2020-06-10 14:58:19,156 ########################selenium test start ########################
+INFO 2020-06-10 14:58:19,156 Logging app started
+INFO 2020-06-10 14:58:19,544 Prepare webdriver Ready
+INFO 2020-06-10 14:58:21,671 Start to login the WebSite
+INFO 2020-06-10 14:58:22,343 Click Users
+INFO 2020-06-10 14:58:24,667 Click usermanagement
+INFO 2020-06-10 14:59:36,601 ########################selenium test start ########################
+INFO 2020-06-10 14:59:36,601 Logging app started
+INFO 2020-06-10 14:59:38,096 Prepare webdriver Ready
+INFO 2020-06-10 14:59:40,726 Start to login the WebSite
+INFO 2020-06-10 14:59:41,363 Click Users
+INFO 2020-06-10 14:59:43,762 Click usermanagement
+INFO 2020-06-10 14:59:46,013 ########################selenium test stop ########################
+INFO 2020-06-10 15:00:30,691 ########################selenium test start ########################
+INFO 2020-06-10 15:00:30,691 Logging app started
+INFO 2020-06-10 15:00:31,159 Prepare webdriver Ready
+INFO 2020-06-10 15:00:33,159 Start to login the WebSite
+INFO 2020-06-10 15:00:33,823 Click Users
+INFO 2020-06-10 15:00:36,079 Click usermanagement
+INFO 2020-06-10 15:00:38,176 ########################selenium test stop ########################
+INFO 2020-06-10 15:01:07,597 ########################selenium test start ########################
+INFO 2020-06-10 15:01:07,597 Logging app started
+INFO 2020-06-10 15:01:08,016 Prepare webdriver Ready
+INFO 2020-06-10 15:01:10,071 Start to login the WebSite
+INFO 2020-06-10 15:01:10,661 Click Users
+INFO 2020-06-10 15:01:13,019 Click usermanagement
+INFO 2020-06-10 15:01:15,115 ########################selenium test stop ########################
+INFO 2020-06-10 15:01:54,497 ########################selenium test start ########################
+INFO 2020-06-10 15:01:54,497 Logging app started
+INFO 2020-06-10 15:01:54,899 Prepare webdriver Ready
+INFO 2020-06-10 15:01:57,383 Start to login the WebSite
+INFO 2020-06-10 15:01:57,965 Click Users
+INFO 2020-06-10 15:02:00,445 Click usermanagement
+INFO 2020-06-10 15:02:02,524 ########################selenium test stop ########################
+INFO 2020-06-10 15:03:01,913 ########################selenium test start ########################
+INFO 2020-06-10 15:03:01,913 Logging app started
+INFO 2020-06-10 15:03:02,312 Prepare webdriver Ready
+INFO 2020-06-10 15:03:04,461 Start to login the WebSite
+INFO 2020-06-10 15:03:05,022 Click Users
+INFO 2020-06-10 15:03:07,270 Click usermanagement
+INFO 2020-06-10 15:03:09,650 ########################selenium test stop ########################
+INFO 2020-06-10 15:04:01,250 ########################selenium test start ########################
+INFO 2020-06-10 15:04:01,250 Logging app started
+INFO 2020-06-10 15:04:01,674 Prepare webdriver Ready
+INFO 2020-06-10 15:04:03,957 Start to login the WebSite
+INFO 2020-06-10 15:04:04,526 Click Users
+INFO 2020-06-10 15:04:06,867 Click usermanagement
+INFO 2020-06-10 15:04:08,950 ########################selenium test stop ########################
+INFO 2020-06-10 15:04:37,790 ########################selenium test start ########################
+INFO 2020-06-10 15:04:37,790 Logging app started
+INFO 2020-06-10 15:04:38,210 Prepare webdriver Ready
+INFO 2020-06-10 15:04:40,335 Start to login the WebSite
+INFO 2020-06-10 15:04:40,905 Click Users
+INFO 2020-06-10 15:04:43,266 Click usermanagement
+INFO 2020-06-10 15:04:45,303 ########################selenium test stop ########################
+INFO 2020-06-10 15:05:12,192 ########################selenium test start ########################
+INFO 2020-06-10 15:05:12,192 Logging app started
+INFO 2020-06-10 15:05:12,589 Prepare webdriver Ready
+INFO 2020-06-10 15:05:14,837 Start to login the WebSite
+INFO 2020-06-10 15:05:15,369 Click Users
+INFO 2020-06-10 15:05:17,749 Click usermanagement
+INFO 2020-06-10 15:05:19,859 ########################selenium test stop ########################
+INFO 2020-06-10 15:06:58,105 ########################selenium test start ########################
+INFO 2020-06-10 15:06:58,106 Logging app started
+INFO 2020-06-10 15:06:58,515 Prepare webdriver Ready
+INFO 2020-06-10 15:07:00,753 Start to login the WebSite
+INFO 2020-06-10 15:07:01,314 Click Users
+INFO 2020-06-10 15:07:03,863 Click usermanagement
+INFO 2020-06-10 15:07:05,888 ########################selenium test stop ########################
+INFO 2020-06-10 15:07:37,410 ########################selenium test start ########################
+INFO 2020-06-10 15:07:37,410 Logging app started
+INFO 2020-06-10 15:07:37,826 Prepare webdriver Ready
+INFO 2020-06-10 15:07:39,841 Start to login the WebSite
+INFO 2020-06-10 15:07:40,412 Click Users
+INFO 2020-06-10 15:07:42,848 Click usermanagement
+INFO 2020-06-10 15:07:44,913 ########################selenium test stop ########################
+INFO 2020-06-10 15:08:07,724 ########################selenium test start ########################
+INFO 2020-06-10 15:08:07,725 Logging app started
+INFO 2020-06-10 15:08:08,147 Prepare webdriver Ready
+INFO 2020-06-10 15:08:10,453 Start to login the WebSite
+INFO 2020-06-10 15:08:10,997 Click Users
+INFO 2020-06-10 15:08:13,322 Click usermanagement
+INFO 2020-06-10 15:08:15,381 ########################selenium test stop ########################
+INFO 2020-06-10 15:09:27,766 ########################selenium test start ########################
+INFO 2020-06-10 15:09:27,766 Logging app started
+INFO 2020-06-10 15:09:28,183 Prepare webdriver Ready
+INFO 2020-06-10 15:09:30,155 Start to login the WebSite
+INFO 2020-06-10 15:09:30,730 Click Users
+INFO 2020-06-10 15:09:33,228 Click usermanagement
+INFO 2020-06-10 15:09:35,331 ########################selenium test stop ########################
