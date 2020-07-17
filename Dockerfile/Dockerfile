@@ -8,6 +8,7 @@ RUN apt-get update \
   && apt-get install git -y
 
 COPY requirements.txt requirements.txt
+COPY test test
 RUN  pip3 install -r ./requirements.txt
 # setting the ssh client
 #ENV DEBIAN_FRONTEND=noninteractive
