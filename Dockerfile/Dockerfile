@@ -5,10 +5,10 @@ RUN apt-get update \
   && cd /usr/local/bin \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip \
-  && apt-get install git -y
+  && apt-get install git -y \
+  && apt-get install vim -y
 
 COPY requirements.txt requirements.txt
-COPY test test
 RUN  pip3 install -r ./requirements.txt
 # setting the ssh client
 #ENV DEBIAN_FRONTEND=noninteractive
@@ -48,6 +48,6 @@ RUN  pip3 install -r ./requirements.txt
 #RUN mkdir /data-share
 #RUN mkdir /lab
 
-#COPY run_jupyter.sh run_jupyter.sh
+COPY selenium_starup.sh selenium_starup.sh
 #USER root
-#CMD ./run_jupyter.sh
+CMD ./selenium_starup.sh

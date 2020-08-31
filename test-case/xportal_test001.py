@@ -72,6 +72,7 @@ class DemoTest():
       self.driver.find_element(By.NAME, "password").send_keys(self.vars["password"])
       self.driver.find_element(By.CSS_SELECTOR, ".jss82").click()
       self.driver.implicitly_wait(10)
+      logging.info('login success')
     except:
       logging.error('Connect to the Site Error', exc_info=True)
       logging.error("NOT PASS!!!!")

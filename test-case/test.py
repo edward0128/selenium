@@ -100,26 +100,26 @@ class DemoTest():
       logging.error('Click usermanagement')
       self.driver.quit()
 
-    test=self.driver.find_element(By.XPATH, "//td[3]/span")
-    print(test.text)
+    #test=self.driver.find_element(By.XPATH, "//td[3]/span")
+    #print(test.text)
 
     try:
-      #for i in range(2, 10, 1):
-        #print(i)
-        test2="(//a[contains(@href, '#/admin/user_mgmt/users')])["
-        test2+="3"
-        test2+="]"
-        print(test2)
-        print(self.driver.find_element(By.XPATH, test2).text)
+      for i in range(2, 10, 1):
+        print(i)
+        #test2="(//a[contains(@href, '#/admin/user_mgmt/users')])["
+        #test2+=i
+        #test2+="]"
+        #print(test2)
+        #print(self.driver.find_element(By.XPATH, test2).text)
         
      
     except:
       print("error")
     
-    test=self.driver.find_element(By.XPATH, "(//a[contains(@href, '#/admin/user_mgmt/users')])[3]")
-    print(test.text)
-    test=self.driver.find_element(By.XPATH, "(//a[contains(@href, '#/admin/user_mgmt/users')])[4]")
-    print(test.text)
+    #test=self.driver.find_element(By.XPATH, "(//a[contains(@href, '#/admin/user_mgmt/users')])[3]")
+    #print(test.text)
+    #test=self.driver.find_element(By.XPATH, "(//a[contains(@href, '#/admin/user_mgmt/users')])[4]")
+    #print(test.text)
     
     
     ########################################
